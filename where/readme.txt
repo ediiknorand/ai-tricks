@@ -3,7 +3,7 @@
  How to use in my AI?
  Example:
 
- local where = dofile("where.lua")
+ local where = dofile("./AI/USER_AI/where.lua")
  local mapname = where()
  if mapname == "ve_fild07" then
    TraceAI("My master is collecting potatoes...")

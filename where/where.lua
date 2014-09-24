@@ -3,7 +3,7 @@
 -- How to use in my AI?
 -- Example:
 --
--- local where = dofile("where.lua")
+-- local where = dofile("./AI/USER_AI/where.lua")
 -- local mapname = where()
 -- if mapname == "ve_fild07" then
 --   TraceAI("My master is collecting potatoes...")
@@ -69,8 +69,10 @@ local function checkNPCs()
   -- Iterate all NPCs (and some extra stuff)
   for i,v in ipairs(actors) do
     local act = getActorInfo(v)
-    if isNPC(act.id) and act.x ~= -1 and not checked_npc(act.id) then
+    if isNPC(act.id) and act.x ~= -1 and not checked_npc[act.id] then
       checked_npc[act.id] = true
+      local conflict = 0
+      local map_con
       -- Iterate all database (rly?)
       for j,u in pairs(npcdb) do
         -- only npcs that match position and sprite id
